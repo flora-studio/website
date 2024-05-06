@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useAllWorkImages, WorkImage } from './useAllWorkImages'
 import { useAllWorkIcons } from './useAllWorkIcons'
+import { PlatformIcon } from './svg/platform'
 
 function WorksPanel() {
   const [item, setItem] = useState(works[0])
@@ -37,7 +38,14 @@ function WorksPanel() {
             )}
             {item.name}
           </h2>
-          {item.desc}
+          {typeof item.desc === 'string' ? <p>{item.desc}</p> : item.desc}
+          <div className="card-actions">
+            {item.links.map(link => (
+              <a key={link.platform} role="button" className="btn btn-circle btn-sm" href={link.url} target="_blank" rel="noreferrer">
+                <PlatformIcon platform={link.platform} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
