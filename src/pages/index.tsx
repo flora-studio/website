@@ -3,6 +3,7 @@ import type { HeadFC, PageProps } from "gatsby"
 import NavBar from '../components/NavBar'
 import Splash from '../components/Splash'
 import WorksPanel from '../components/WorksPanel'
+import MembersPanel from '../components/MembersPanel'
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -11,6 +12,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <Splash />
       <main className="bg-base-200 px-60">
         <WorksPanel />
+        <MembersPanel />
       </main>
       <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
         <nav>

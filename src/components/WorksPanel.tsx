@@ -15,40 +15,43 @@ function WorksPanel() {
   const iconList = useAllWorkIcons()
   const currentIcon = iconList.get(item.id)
   return (
-    <div className="flex gap-2">
-      <div className="flex-none card w-48 bg-base-100 shadow-xl">
-        <div className="card-body menu">
-          {works.map(work => (
-            <li key={work.id}>
-              <a className={item === work ? 'active' : ''} onClick={() => setItem(work)}>{work.name}</a>
-            </li>
-          ))}
-        </div>
-      </div>
-      <div className="flex-1 card bg-base-100 shadow-xl">
-        <div className="card-body">
-          <EmblaCarousel images={currentImageList} />
-          <h2 className="card-title mt-4">
-            {currentIcon && (
-              <div className="avatar">
-                <div className="w-8 rounded">
-                  <GatsbyImage alt="icon" image={getImage(currentIcon)!}/>
-                </div>
-              </div>
-            )}
-            {item.name}
-          </h2>
-          {typeof item.desc === 'string' ? <p>{item.desc}</p> : item.desc}
-          <div className="card-actions">
-            {item.links.map(link => (
-              <a key={link.platform} role="button" className="btn btn-circle btn-sm" href={link.url} target="_blank" rel="noreferrer">
-                <PlatformIcon platform={link.platform} />
-              </a>
+    <>
+      <h2 className="text-center text-4xl font-bold pt-32 pb-12">做了一些<span className="text-accent">微小的工作</span>……</h2>
+      <div className="flex gap-4 items-start">
+        <div className="flex-none card w-48 bg-base-100 shadow-xl">
+          <div className="card-body menu">
+            {works.map(work => (
+              <li key={work.id}>
+                <a className={item === work ? 'active' : ''} onClick={() => setItem(work)}>{work.name}</a>
+              </li>
             ))}
           </div>
         </div>
+        <div className="flex-1 card bg-base-100 shadow-xl">
+          <div className="card-body">
+            <EmblaCarousel images={currentImageList} />
+            <h2 className="card-title mt-4">
+              {currentIcon && (
+                <div className="avatar">
+                  <div className="w-8 rounded">
+                    <GatsbyImage alt="icon" image={getImage(currentIcon)!}/>
+                  </div>
+                </div>
+              )}
+              {item.name}
+            </h2>
+            {typeof item.desc === 'string' ? <p>{item.desc}</p> : item.desc}
+            <div className="card-actions">
+              {item.links.map(link => (
+                <a key={link.platform} role="button" className="btn btn-circle btn-sm" href={link.url} target="_blank" rel="noreferrer">
+                  <PlatformIcon platform={link.platform} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
