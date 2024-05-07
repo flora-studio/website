@@ -4,11 +4,11 @@ import { StaticImage } from 'gatsby-plugin-image'
 function MembersPanel() {
   return (
     <>
-      <div className="pt-24 pb-6">
-        <h2 className="text-4xl font-bold pl-4 border-l-primary border-l-[.2em]">关于我们</h2>
+      <div className="pt-32 pb-12">
+        <h2 className="text-center text-4xl font-bold">我们是谁？</h2>
       </div>
-      <div className="flex gap-4">
-        <div className="flex-1 card bg-base-100 shadow-xl">
+      <div className="flex gap-4 justify-center">
+        <div className="w-80 card bg-base-100 shadow-xl">
           <div className="card-body items-center text-center">
             <div className="avatar">
               <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -26,7 +26,7 @@ function MembersPanel() {
             </ul>
           </div>
         </div>
-        <div className="flex-1 card bg-base-100 shadow-xl">
+        <div className="w-80 card bg-base-100 shadow-xl">
           <div className="card-body items-center text-center">
             <div className="avatar">
               <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">

@@ -66,6 +66,14 @@ const works: Work[] = [
       {
         platform: 'indienova',
         url: ''
+      },
+      {
+        platform: 'web',
+        url: ''
+      },
+      {
+        platform: 'github',
+        url: ''
       }
     ]
   },

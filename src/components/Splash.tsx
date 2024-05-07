@@ -4,7 +4,7 @@ import * as React from 'react'
 
 function Splash() {
   return (
-    <div className="hero min-h-screen bg-base-200 relative">
+    <div className="hero min-h-screen relative">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <div className="avatar">
