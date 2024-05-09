@@ -12,7 +12,7 @@ function MembersPanel() {
           <div className="card-body items-center text-center">
             <div className="avatar">
               <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <StaticImage src="../images/kara.png" alt="avatar of Maca" layout="fixed" width={80} height={80} />
+                <StaticImage src="../images/kara.png" alt="avatar of Kara" layout="fixed" width={80} height={80} />
               </div>
             </div>
             <h2 className="card-title mt-2">Kara</h2>

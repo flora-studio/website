@@ -33,7 +33,7 @@ function ServicePanel() {
             </div>
           </p>
           <p className="mt-8 flex flex-col gap-2 items-center">
-            <a className="btn btn-primary btn-wide">联系我们<FaArrowRight /></a>
+            <a className="btn btn-primary btn-wide" href="https://wj.qq.com/s2/14602384/5592/" target="_blank" rel="noreferrer">联系我们<FaArrowRight /></a>
             <span className="text-base-content/50 text-sm">您也可以通过各个社交平台与我们取得联系</span>
           </p>
         </div>
