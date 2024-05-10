@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import works from '../data/works'
+import works from '../../data/works'
 import useEmblaCarousel from 'embla-carousel-react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useAllWorkImages, WorkImage } from './useAllWorkImages'
 import { useAllWorkIcons } from './useAllWorkIcons'
-import { PlatformIcon } from './svg/platform'
-import { offToggleWork, onToggleWork } from '../utils'
+import { PlatformIcon } from '../svg/platform'
+import { offToggleWork, onToggleWork } from '../../utils'
+import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 
 function WorksPanel() {
   const [item, setItem] = useState(works[0])
@@ -40,7 +41,7 @@ function WorksPanel() {
         <div className="flex-1 card bg-base-100 shadow-xl">
           <div className="card-body">
             <EmblaCarousel images={currentImageList} />
-            <h2 className="card-title mt-4">
+            <h2 className="card-title my-2">
               {currentIcon && (
                 <div className="avatar">
                   <div className="w-8 rounded">
@@ -51,7 +52,7 @@ function WorksPanel() {
               {item.name}
             </h2>
             {typeof item.desc === 'string' ? <p>{item.desc}</p> : item.desc}
-            <div className="card-actions">
+            <div className="card-actions mt-4">
               {item.links.map(link => (
                 <a key={link.platform} role="button" className="btn btn-circle btn-sm" href={link.url} target="_blank" rel="noreferrer">
                   <PlatformIcon platform={link.platform} />
@@ -68,21 +69,37 @@ function WorksPanel() {
 export default WorksPanel
 
 function EmblaCarousel({ images = [] }: { images?: WorkImage[] }) {
-  const [emblaRef] = useEmblaCarousel({ loop: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
 
   return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        {
-          images.map((img, i) => {
-            const imgData = getImage(img)!
-            return (
-              <div key={i} className="embla__slide" style={{ '--w': `${imgData.width}px` } as React.CSSProperties}>
-                <GatsbyImage alt="screenshot" image={imgData} />
-              </div>
-            )
-          })
-        }
+    <div className="embla">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
+          {
+            images.map((img, i) => {
+              const imgData = getImage(img)!
+              return (
+                <div key={i} className="embla__slide" style={{ '--w': `${imgData.width}px` } as React.CSSProperties}>
+                  <GatsbyImage alt="screenshot" image={imgData} />
+                </div>
+              )
+            })
+          }
+        </div>
+      </div>
+
+      <div className="embla__dots">
+        {scrollSnaps.map((_, index) => (
+          <DotButton
+            key={index}
+            onClick={() => onDotButtonClick(index)}
+            className={'embla__dot'.concat(
+              index === selectedIndex ? ' embla__dot--selected' : ''
+            )}
+          />
+        ))}
       </div>
     </div>
   )

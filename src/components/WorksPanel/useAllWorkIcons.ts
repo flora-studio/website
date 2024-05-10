@@ -10,7 +10,7 @@ export function useAllWorkIcons() {
           node {
             name
             childImageSharp {
-              gatsbyImageData(height: 32, placeholder: DOMINANT_COLOR, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(height: 32)
             }
           }
         }

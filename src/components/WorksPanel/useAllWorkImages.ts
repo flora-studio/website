@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import works from '../data/works'
+import works from '../../data/works'
 
 export type WorkImage = { name: string, childImageSharp: any, workId: string }
 
@@ -11,7 +11,7 @@ export function useAllWorkImages() {
           node {
             name
             childImageSharp {
-              gatsbyImageData(height: 200, placeholder: DOMINANT_COLOR, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(height: 200)
             }
             relativeDirectory
           }

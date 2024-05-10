@@ -13,15 +13,23 @@ const config: GatsbyConfig = {
     /*"gatsby-plugin-google-gtag",*/
     'gatsby-plugin-postcss',
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`, 'avif'],
+          placeholder: `dominantColor`,
+        }
+      }
+    },
     "gatsby-transformer-sharp",
     {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
-    },
-    __key: "images"
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "images",
+        "path": "./src/images/"
+      },
+      __key: "images"
     }
   ]
 };
