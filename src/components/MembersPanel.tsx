@@ -37,7 +37,7 @@ function MembersPanel() {
             <ul className="list-disc text-left">
               <li>码农</li>
               <li>独立游戏爱好者</li>
-              <li>但是手残且晕 3D</li>
+              <li>手残且晕 3D</li>
               <li>萌豚</li>
             </ul>
           </div>

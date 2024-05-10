@@ -157,7 +157,7 @@ function YLightBox({ images = [], index = 0, open, onClose, onChange }: YLightBo
         view: ({ index }) => onChange?.(index)
       }}
       render={{
-        slide: ({ slide }) => <GatsbyImage image={(slide as any).data} alt="screenshot" />
+        slide: ({ slide }) => <GatsbyImage image={(slide as any).data} alt="screenshot" objectFit="contain" className="max-w-[90vw] max-h-[90vh]" />
       }}
     />
   )
