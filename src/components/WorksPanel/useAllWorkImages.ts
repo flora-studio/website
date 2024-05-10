@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import works from '../../data/works'
 
-export type WorkImage = { name: string, childImageSharp: any, workId: string }
+export type WorkImage = { name: string, thumb: any, picture: any, workId: string }
 
 export function useAllWorkImages() {
   const data = useStaticQuery(graphql`
@@ -10,9 +10,12 @@ export function useAllWorkImages() {
         edges {
           node {
             name
-            childImageSharp {
+            thumbs: childImageSharp {
               gatsbyImageData(height: 200)
             }
+            pictures: childImageSharp {
+              gatsbyImageData(height: 1000)
+        }
             relativeDirectory
           }
         }
@@ -22,9 +25,10 @@ export function useAllWorkImages() {
 
   const list = data.allFile.edges.map((edge: any) => ({
     name: edge.node.name,
-    childImageSharp: edge.node.childImageSharp,
+    thumb: edge.node.thumbs,
+    picture: edge.node.pictures,
     workId: edge.node.relativeDirectory.replace(/^works\//, '')
-  })).filter((item: WorkImage) => !!item.childImageSharp) as WorkImage[]
+  })).filter((item: WorkImage) => !!item.thumb) as WorkImage[]
 
   // group by
   const map = new Map<string, WorkImage[]>()

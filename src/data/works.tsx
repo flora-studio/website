@@ -91,7 +91,7 @@ const works: Work[] = [
   },
   {
     id: 'es2',
-    name: 'ES2 抽卡',
+    name: 'ES2 抽卡模拟器',
     desc: '偶像梦幻祭 2 抽卡模拟器',
     links: []
   }

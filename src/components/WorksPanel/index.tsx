@@ -7,6 +7,8 @@ import { useAllWorkIcons } from './useAllWorkIcons'
 import { PlatformIcon } from '../svg/platform'
 import { offToggleWork, onToggleWork } from '../../utils'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
+import Lightbox from 'yet-another-react-lightbox'
+import "yet-another-react-lightbox/styles.css"
 
 function WorksPanel() {
   const [item, setItem] = useState(works[0])
@@ -40,7 +42,7 @@ function WorksPanel() {
         </div>
         <div className="flex-1 card bg-base-100 shadow-xl">
           <div className="card-body">
-            <EmblaCarousel images={currentImageList} />
+            <EmblaCarousel key={item.id} images={currentImageList} />
             <h2 className="card-title my-2">
               {currentIcon && (
                 <div className="avatar">
@@ -73,34 +75,90 @@ function EmblaCarousel({ images = [] }: { images?: WorkImage[] }) {
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
 
+  const [lightBoxOpen, setLightBoxOpen] = useState(false)
+
   return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {
-            images.map((img, i) => {
-              const imgData = getImage(img)!
-              return (
-                <div key={i} className="embla__slide" style={{ '--w': `${imgData.width}px` } as React.CSSProperties}>
-                  <GatsbyImage alt="screenshot" image={imgData} />
-                </div>
-              )
-            })
-          }
+    <>
+      <div className="embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            {
+              images.map((img, i) => {
+                const imgData = getImage(img.thumb)!
+                return (
+                  <div
+                    key={i}
+                    className="embla__slide cursor-pointer"
+                    style={{ '--w': `${imgData.width}px` } as React.CSSProperties}
+                    onClick={() => setLightBoxOpen(true)}
+                  >
+                    <GatsbyImage alt="screenshot" image={imgData} />
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
+
+        <div className="embla__dots">
+          {scrollSnaps.map((_, index) => (
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              className={'embla__dot'.concat(
+                index === selectedIndex ? ' embla__dot--selected' : ''
+              )}
+            />
+          ))}
         </div>
       </div>
+      <YLightBox
+        images={images}
+        index={selectedIndex}
+        open={lightBoxOpen}
+        onClose={() => setLightBoxOpen(false)}
+        onChange={(index) => onDotButtonClick(index)}
+      />
+    </>
+  )
+}
 
-      <div className="embla__dots">
-        {scrollSnaps.map((_, index) => (
-          <DotButton
-            key={index}
-            onClick={() => onDotButtonClick(index)}
-            className={'embla__dot'.concat(
-              index === selectedIndex ? ' embla__dot--selected' : ''
-            )}
-          />
-        ))}
-      </div>
-    </div>
+interface YLightBoxProps {
+  images?: WorkImage[]
+  index?: number
+  open: boolean
+  onClose: () => void
+  onChange?: (index: number) => void
+}
+
+function YLightBox({ images = [], index = 0, open, onClose, onChange }: YLightBoxProps) {
+
+  const slides = images.map(img => {
+    const imgData = getImage(img.picture)!
+    return {
+      // type: 'custom-slide',
+      src: '', // make ts happy
+      data: imgData
+    }
+  })
+
+  return (
+    <Lightbox
+      open={open}
+      close={onClose}
+      slides={slides}
+      index={index}
+      controller={{
+        // closeOnPullUp: true,
+        // closeOnPullDown: true,
+        closeOnBackdropClick: true
+      }}
+      on={{
+        view: ({ index }) => onChange?.(index)
+      }}
+      render={{
+        slide: ({ slide }) => <GatsbyImage image={(slide as any).data} alt="screenshot" />
+      }}
+    />
   )
 }
