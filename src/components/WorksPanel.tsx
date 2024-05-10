@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import works from '../data/works'
 import useEmblaCarousel from 'embla-carousel-react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useAllWorkImages, WorkImage } from './useAllWorkImages'
 import { useAllWorkIcons } from './useAllWorkIcons'
 import { PlatformIcon } from './svg/platform'
+import { offToggleWork, onToggleWork } from '../utils'
 
 function WorksPanel() {
   const [item, setItem] = useState(works[0])
+  // 外部切换 work 处理
+  const toggleWork = useCallback((id: string) => {
+    const work = works.find(work => work.id === id)
+    work && setItem(work)
+  }, [])
+  useEffect(() => {
+    onToggleWork(toggleWork)
+    return () => offToggleWork(toggleWork)
+  }, [])
 
   const imageList = useAllWorkImages()
   const currentImageList = imageList.get(item.id)
@@ -16,7 +26,7 @@ function WorksPanel() {
   const currentIcon = iconList.get(item.id)
   return (
     <>
-      <h2 className="text-center text-4xl font-bold pt-32 pb-12">做了一些<span className="text-accent">微小的工作</span>……</h2>
+      <h2 id="works" className="text-center text-4xl font-bold pt-32 pb-12">做了一些<span className="text-accent">微小的工作</span>……</h2>
       <div className="flex gap-4 items-start max-w-4xl mx-auto">
         <div className="flex-none card w-48 bg-base-100 shadow-xl">
           <div className="card-body menu">

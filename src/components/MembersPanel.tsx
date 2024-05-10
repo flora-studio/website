@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 function MembersPanel() {
   return (
     <>
-      <div className="pt-32 pb-12">
+      <div id="members" className="pt-32 pb-12">
         <h2 className="text-center text-4xl font-bold">我们是谁？</h2>
       </div>
       <div className="flex gap-4 justify-center">
@@ -37,6 +37,7 @@ function MembersPanel() {
             <ul className="list-disc text-left">
               <li>码农</li>
               <li>独立游戏爱好者</li>
+              <li>但是手残且晕 3D</li>
               <li>萌豚</li>
             </ul>
           </div>

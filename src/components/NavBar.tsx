@@ -1,11 +1,19 @@
-import React from "react"
+import React, { useState } from 'react'
 import works from '../data/works'
 import { StaticImage } from 'gatsby-plugin-image'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import { scrollTo, toggleWork } from '../utils'
 
 function NavBar() {
+
+  const [show, setShow] = useState(false)
+  useScrollPosition(({ currPos }) => {
+    setShow(currPos.y >= window.innerHeight)
+  }, [setShow], undefined, true, 300)
+
   return (
-    <div className="navbar bg-base-100 fixed top-0 left-0 right-0 z-10">
-      <div className="flex-1 flex gap-4 pl-6">
+    <div className={`navbar ${show ? 'bg-base-100' : 'bg-opacity'} fixed top-0 left-0 right-0 z-10`}>
+      <div className={`flex-1 flex gap-4 pl-6 ${show ? 'visible' : 'invisible'}`}>
         <div className="avatar">
           <div className="w-10 rounded-full">
             <StaticImage src="../images/logo.png" alt="logo" layout="fixed" width={40} height={40} />
@@ -20,13 +28,13 @@ function NavBar() {
               <summary>
                 项目
               </summary>
-              <ul className="p-2 bg-base-100 rounded-t-none w-40">
-                {works.map(work => <li key={work.name}><a>{work.name}</a></li>)}
+              <ul className="p-2 bg-base-100 w-40">
+                {works.map(work => <li key={work.name}><a onClick={() => toggleWork(work.id)}>{work.name}</a></li>)}
               </ul>
             </details>
           </li>
-          <li><a>成员</a></li>
-          <li><a>联系</a></li>
+          <li><a onClick={() => scrollTo('members')}>成员</a></li>
+          <li><a onClick={() => scrollTo('service')}>联系</a></li>
         </ul>
         <label className="swap swap-rotate ml-4 mr-2">
           <input type="checkbox" className="theme-controller" value="dark" />

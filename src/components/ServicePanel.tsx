@@ -3,11 +3,12 @@ import FaArrowRight from './svg/FaArrowRight'
 import PiPencilCircle from './svg/PiPencilCircle'
 import AiOutlineCode from './svg/AiOutlineCode'
 import MdDevices from './svg/MdDevices'
+import { toggleWork } from '../utils'
 
 function ServicePanel() {
   return (
     <>
-      <h2 className="text-center text-4xl font-bold pt-32 pb-12">帮助你的<span className="text-secondary">创意</span>成为<span className="text-accent">现实</span></h2>
+      <h2 id="service" className="text-center text-4xl font-bold pt-32 pb-12">帮助你的<span className="text-secondary">创意</span>成为<span className="text-accent">现实</span></h2>
       <div className="card bg-base-100 shadow-xl overflow-hidden max-w-3xl mx-auto">
         <div className="card-body relative">
           {/*<p>我们可为您提供私人定制的服务，包括但不限于：</p>*/}
@@ -22,7 +23,14 @@ function ServicePanel() {
             <AiOutlineCode className="flex-none text-6xl" />
             <div>
               <div className="font-bold">小游戏、工具定制开发</div>
-              <div className="text-base-content/50">类似<u>偷偷钓个鱼</u>、<u>跑团IO</u>、<u>抽卡模拟器</u>等</div>
+              <div className="text-base-content/50">类似
+                <u className="cursor-pointer" onClick={() => toggleWork('fishing')}>偷偷钓个鱼</u>
+                、
+                <u className="cursor-pointer" onClick={() => toggleWork('paotuan')}>跑团IO</u>
+                、
+                <u className="cursor-pointer" onClick={() => toggleWork('es2')}>抽卡模拟器</u>
+                等
+              </div>
             </div>
           </p>
           <p className="flex items-center gap-2">
