@@ -7,6 +7,7 @@ import MembersPanel from '../components/MembersPanel'
 import Background from '../components/Background'
 import ServicePanel from '../components/ServicePanel'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -26,4 +27,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <SEO />

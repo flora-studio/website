@@ -19,7 +19,7 @@ function NavBar() {
             <StaticImage src="../images/logo.png" alt="logo" layout="fixed" width={40} height={40} />
           </div>
         </div>
-        <a className="text-xl font-bold">Flora Studio</a>
+        <a className="hidden xs:inline text-xl font-bold">Flora Studio</a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">

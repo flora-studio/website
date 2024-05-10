@@ -7,7 +7,7 @@ function MembersPanel() {
       <div id="members" className="pt-32 pb-12">
         <h2 className="text-center text-4xl font-bold">我们是谁？</h2>
       </div>
-      <div className="flex gap-4 justify-center">
+      <div className="flex flex-col xs:flex-row gap-4 items-center xs:items-stretch justify-center">
         <div className="w-80 card bg-base-100 shadow-xl">
           <div className="card-body items-center text-center">
             <div className="avatar">

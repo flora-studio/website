@@ -3,7 +3,9 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `芙露拉工作室 | Flora Studio`,
-    siteUrl: `https://florastudio.app`
+    siteUrl: `https://florastudio.app`,
+    description: '专注于二次元、独立游戏和软件开发',
+    image: `/logo.png`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
