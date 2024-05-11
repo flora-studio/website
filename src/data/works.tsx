@@ -40,7 +40,12 @@ const works: Work[] = [
   {
     id: 'fishing',
     name: '偷偷钓个鱼',
-    desc: '偷偷钓个鱼',
+    desc: (
+      <>
+        <p>摸鱼必备小游戏</p>
+        <p>通过不断钓鱼，来制作料理、解锁图鉴、购买手办、获得宠物以及布置鱼缸吧！</p>
+      </>
+    ),
     links: [
       {
         platform: 'web',
@@ -99,7 +104,11 @@ const works: Work[] = [
   {
     id: 'es2',
     name: 'ES2 抽卡模拟器',
-    desc: '偶像梦幻祭 2 抽卡模拟器',
+    desc: (
+      <>
+        <p>《偶像梦幻祭2》抽卡模拟器，缓解抽卡瘾的最佳工具</p>
+      </>
+    ),
     links: [
       {
         platform: 'web',

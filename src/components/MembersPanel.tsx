@@ -18,11 +18,11 @@ function MembersPanel() {
             <h2 className="card-title mt-2">Kara</h2>
             <ul className="list-disc text-left">
               <li>策划&编剧&美术&测试</li>
-              <li>老二次元</li>
-              <li>同人女</li>
-              <li>模拟经营游戏爱好者</li>
-              <li>悬疑推理轮回爱好者</li>
-              <li>喜欢阅读&写作</li>
+              <li>老二次元+同人女</li>
+              <li>喜欢稀奇古怪的小游戏</li>
+              <li>喜好阅读&写作</li>
+              <li>常常沉浸在自己世界的 INTJ</li>
+              <li>沉默的话痨</li>
             </ul>
           </div>
         </div>
@@ -39,7 +39,7 @@ function MembersPanel() {
               <li>社恐 INTP</li>
               <li>独立游戏爱好者</li>
               <li>手残且晕 3D</li>
-              <li>萌豚</li>
+              <li>兴趣广泛，不求甚解</li>
               <li>想创作有意思的东西</li>
             </ul>
           </div>

@@ -29,7 +29,7 @@ function WorksPanel() {
   const currentIcon = iconList.get(item.id)
   return (
     <>
-      <h2 id="works" className="text-center text-4xl font-bold pt-32 pb-12">做了一些<span className="text-accent">微小的工作</span>……</h2>
+      <h2 id="works" className="text-center text-4xl font-bold pt-32 pb-12">我们的<span className="text-accent">项目</span>有……</h2>
       <div className="flex flex-col sm:flex-row gap-4 items-start max-w-4xl mx-auto">
         <div className="flex-none card sm:w-48 bg-base-100 shadow-xl">
           <div className="card-body menu menu-horizontal sm:menu-vertical">

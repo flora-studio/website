@@ -16,7 +16,7 @@ function ServicePanel() {
             <PiPencilCircle className="flex-none text-6xl" />
             <div>
               <div className="font-bold">约稿</div>
-              <div className="text-base-content/50">这是描述这是描述</div>
+              <div className="text-base-content/50">短篇小说、二次元分析、游戏自媒体等</div>
             </div>
           </div>
           <div className="flex items-center gap-2">
