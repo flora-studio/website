@@ -12,14 +12,14 @@ function ServicePanel() {
       <div className="card bg-base-100 shadow-xl overflow-hidden max-w-3xl mx-auto">
         <div className="card-body relative">
           {/*<p>我们可为您提供私人定制的服务，包括但不限于：</p>*/}
-          <p className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <PiPencilCircle className="flex-none text-6xl" />
             <div>
               <div className="font-bold">约稿</div>
               <div className="text-base-content/50">这是描述这是描述</div>
             </div>
-          </p>
-          <p className="flex items-center gap-2">
+          </div>
+          <div className="flex items-center gap-2">
             <AiOutlineCode className="flex-none text-6xl" />
             <div>
               <div className="font-bold">小游戏、工具定制开发</div>
@@ -32,14 +32,14 @@ function ServicePanel() {
                 等
               </div>
             </div>
-          </p>
-          <p className="flex items-center gap-2">
+          </div>
+          <div className="flex items-center gap-2">
             <MdDevices className="flex-none text-6xl" />
             <div>
               <div className="font-bold">网站定制开发</div>
               <div className="text-base-content/50">官网、博客、后台管理系统等，不限类型</div>
             </div>
-          </p>
+          </div>
           <p className="mt-8 flex flex-col gap-2 items-center">
             <a className="btn btn-primary btn-wide" href="https://wj.qq.com/s2/14602384/5592/" target="_blank" rel="noreferrer">联系我们<FaArrowRight /></a>
             <span className="text-base-content/50 text-sm">您也可以通过各个社交平台与我们取得联系</span>

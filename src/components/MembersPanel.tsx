@@ -36,9 +36,11 @@ function MembersPanel() {
             <h2 className="card-title mt-2">Maca</h2>
             <ul className="list-disc text-left">
               <li>码农</li>
+              <li>社恐 INTP</li>
               <li>独立游戏爱好者</li>
               <li>手残且晕 3D</li>
               <li>萌豚</li>
+              <li>想创作有意思的东西</li>
             </ul>
           </div>
         </div>
