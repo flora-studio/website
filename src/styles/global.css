@@ -6,49 +6,56 @@ body {
   @apply bg-base-200;
 }
 
-.embla {
-  --slide-spacing: 1rem;
-  --dot-size: 0.9rem;
-  --dot-touch-size: 1.5rem;
-  --dot-shadow-size: 0.15rem;
-  --dot-color: oklch(var(--bc) / 0.2);
-  --dot-color-active: oklch(var(--bc));
+.btn-circle.btn-sm {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  padding: 0px;
 }
 
-.embla__viewport {
-  height: 200px;
-  overflow: hidden;
-}
-
-.embla__container {
+.menu li {
+  position: relative;
   display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
-.embla__slide {
-  flex: 0 0 var(--w, 90%);
-  min-width: 0;
-  margin-right: var(--slide-spacing);
+.menu li a {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 200ms;
+  border-radius: var(--rounded-btn, 0.5rem);
+  text-wrap: balance;
+  display: grid;
+  grid-auto-flow: column;
+  align-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  grid-auto-columns: minmax(auto, max-content) auto max-content;
+  user-select: none;
 }
 
-.embla__dots {
-  @apply flex flex-wrap justify-center items-center mt-2;
-  margin-right: calc((var(--dot-touch-size) - var(--dot-size)) / 2 * -1);
+.submenu-a::after {
+  justify-self: end;
+  display: block;
+  margin-top: -0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  transform: rotate(45deg);
+  transition-property: transform, margin-top;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  content: "";
+  transform-origin: 75% 75%;
+  box-shadow: 2px 2px;
+  pointer-events: none;
 }
 
-.embla__dot {
-  @apply flex items-center justify-center cursor-pointer rounded-full;
-  width: var(--dot-touch-size);
-  height: var(--dot-touch-size);
-}
-
-.embla__dot:after {
-  @apply flex items-center rounded-full;
-  box-shadow: inset 0 0 0 var(--dot-shadow-size) var(--dot-color);
-  width: var(--dot-size);
-  height: var(--dot-size);
-  content: '';
-}
-
-.embla__dot--selected:after {
-  box-shadow: inset 0 0 0 var(--dot-shadow-size) var(--dot-color-active);
+.submenu-a.open::after {
+  transform: rotate(225deg);
+  margin-top: 0;
 }

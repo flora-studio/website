@@ -1,0 +1,47 @@
+.embla {
+  --slide-spacing: 1rem;
+  --dot-size: 0.9rem;
+  --dot-touch-size: 1.5rem;
+  --dot-shadow-size: 0.15rem;
+  --dot-color: hsl(var(--bc) / 0.2);
+  --dot-color-active: hsl(var(--bc));
+}
+
+.embla__viewport {
+  height: 200px;
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 var(--w, 90%);
+  min-width: 0;
+  margin-right: var(--slide-spacing);
+}
+
+.embla__dots {
+  @apply flex flex-wrap justify-center items-center mt-2;
+  margin-right: calc((var(--dot-touch-size) - var(--dot-size)) / 2 * -1);
+}
+
+.embla__dot {
+  @apply flex items-center justify-center cursor-pointer rounded-full;
+  width: var(--dot-touch-size);
+  height: var(--dot-touch-size);
+  background: none;
+}
+
+.embla__dot:after {
+  @apply flex items-center rounded-full;
+  box-shadow: inset 0 0 0 var(--dot-shadow-size) var(--dot-color);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  content: '';
+}
+
+.embla__dot--selected:after {
+  box-shadow: inset 0 0 0 var(--dot-shadow-size) var(--dot-color-active);
+}

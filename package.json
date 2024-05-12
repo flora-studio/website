@@ -8,10 +8,10 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
+    "start": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"
   },
@@ -28,6 +28,7 @@
     "mitt": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-tiny-popover": "^8.0.4",
     "yet-another-react-lightbox": "^3.18.0"
   },
   "devDependencies": {
@@ -36,7 +37,7 @@
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.19",
-    "daisyui": "^4.10.5",
+    "daisyui": "^3.9.4",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "gatsby-plugin-postcss": "^6.13.1",
