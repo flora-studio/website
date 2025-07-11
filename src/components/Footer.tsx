@@ -54,7 +54,7 @@ function Footer() {
       </div>
     </nav>
     <aside>
-      <p>Copyright © 2024 Flora Studio</p>
+      <p>Copyright © {new Date().getFullYear()} Flora Studio</p>
     </aside>
   </footer>
 }

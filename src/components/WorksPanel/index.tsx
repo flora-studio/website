@@ -40,7 +40,7 @@ function WorksPanel() {
             ))}
           </div>
         </div>
-        <div className="flex-1 card bg-base-100 shadow-xl">
+        <div className="w-0 flex-1 card bg-base-100 shadow-xl">
           <div className="card-body">
             <EmblaCarousel key={item.id} images={currentImageList} />
             <h2 className="card-title my-2">
