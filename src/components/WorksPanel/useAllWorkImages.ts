@@ -15,7 +15,7 @@ export function useAllWorkImages() {
             }
             pictures: childImageSharp {
               gatsbyImageData(height: 1000)
-        }
+            }
             relativeDirectory
           }
         }
